@@ -1,0 +1,17 @@
+.collapse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    button {
+        border: none;
+        border-radius: 10px;
+        background-color: #FF6060;
+        width: 80%;
+        margin: 10px;
+    }
+    .descriptionCollapse {
+        background-color: #F6F6F6;
+        width: 80%;
+    }
+}

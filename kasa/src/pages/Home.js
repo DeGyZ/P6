@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { useState, useEffect } from 'react'
 import Banner from '../components/Banner'
+import photoBanner from "../components/photoBanner.png"
 
 export default function Home() {
   const [annonces, setAnnonces] = useState ([])
@@ -22,7 +23,7 @@ export default function Home() {
   return (
     <>
     <Header />
-    <Banner />
+    <Banner bannerTitle="Chez vous, partout et ailleurs" bannerImgSrc={photoBanner}/>
     {annonces.map((annonce)=>(
       <h1 key={annonce.id}>{annonce.title}</h1>
     ))}

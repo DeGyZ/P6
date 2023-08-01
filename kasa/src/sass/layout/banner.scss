@@ -1,6 +1,6 @@
 .photoBanner {
+    position: relative;
         img {
-            position: relative;
             width: 90%;
             height: 200px;
             object-fit: cover;
@@ -10,7 +10,8 @@
         }
         h1 {
             position: absolute;
-            left: 50%;
-            right: 50%;
+            left: 40%;
+            top: 30%;
+            color: white;
         }
     }

@@ -1,11 +1,10 @@
 import React from 'react';
-import photoBanner from './photoBanner.png';
 
-const Banner = () => {
+const Banner = ({bannerImgSrc, bannerTitle}) => {
     return (
         <div className='photoBanner'>
-        <img src={photoBanner} alt="" />
-        {/* <h1>Chez vous, partout et ailleurs</h1> */}
+        <img src={bannerImgSrc} alt="" />
+        {!bannerTitle ? "":<h1>{bannerTitle}</h1>}
         </div>
     );
 };
