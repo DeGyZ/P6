@@ -1,5 +1,5 @@
 import React from 'react';
-import blackLogo from './blackLogo.png'
+import blackLogo from '../../assets/blackLogo.png'
 
 const Footer = () => {
     return (
