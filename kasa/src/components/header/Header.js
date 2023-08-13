@@ -7,10 +7,10 @@ const Header = () => {
         <div className='header'>
             <img src={logo} alt="logo kasa" />
             <ul>
-                <NavLink to="/">
+                <NavLink className={(nav)=>(nav.isActive ?"active":"")} to="/">
                     <li>Acceuil</li>
                 </NavLink>
-                <NavLink to="/about">
+                <NavLink className={(nav)=>(nav.isActive ?"active":"")} to="/about">
                     <li>A Propos</li>
                 </NavLink>
             </ul>

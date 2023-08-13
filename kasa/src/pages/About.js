@@ -11,9 +11,11 @@ export default function About() {
         <>
         <Header />
         <Banner bannerTitle="" bannerImgSrc={bannerAbout}/>
+        <div >
         {collapsesItems.map((collapsesItem)=>(
         <Collapse titleCollapse={collapsesItem.title} descriptionCollaspe={collapsesItem.content} key={collapsesItem.id}/>
          ))}
+         </div>
         <Footer />
         </>
     )

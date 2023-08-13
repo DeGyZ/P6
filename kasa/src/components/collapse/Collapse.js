@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import arrow from "../../assets/arrow.png"
 
 export default function Collapse({titleCollapse, descriptionCollaspe}) {
     const [open, setOpen] = useState(false)
@@ -12,16 +13,18 @@ export default function Collapse({titleCollapse, descriptionCollaspe}) {
     }
   return (
     <div className='collapse'>
-        <button onClick={toggle}>
-            {titleCollapse}
+        <button>
+            <span>{titleCollapse}</span>
+            <div onClick={toggle}>
             {open === true ? (
-                <img src="" alt="flecheEnHaut" />
+                <img className='arrow_up' src={arrow} alt="flecheEnHaut" />
             ):(
-                <img src="" alt="flecheEnBas" />
+                <img className='arrow_down' src={arrow} alt="flecheEnBas" />
             )}
+            </div>
         </button>
         {open && (
-            <div className='descriptionCollapse'>{descriptionCollaspe}</div>
+            <p className='descriptionCollapse'>{descriptionCollaspe}</p>
         )}
     </div>
   )

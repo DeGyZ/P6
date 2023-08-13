@@ -1,5 +1,5 @@
 .photoBanner {
-    position: relative;
+        position: relative;
         img {
             width: 90%;
             height: 200px;
@@ -17,4 +17,12 @@
             top: 30%;
             color: white;
         }
+        @media screen and (max-width: 650px){
+            img {
+               height: 110px;
+            }
+            h1 {
+                font-size: medium;
+            }
+            }  
     }
