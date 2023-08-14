@@ -1,42 +1,32 @@
 // import './accomodation.scss'
-import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import datas from '../data/annonces.json'
 import Header from "../components/header/Header";
 import Slider from "../components/carrousel/Carrousel"
 import Footer from "../components/footer/Footer";
 import Collapse from '../components/collapse/Collapse';
-import greyStar from '../assets/grey_star.png';
-import redStar from '../assets/red_star.png';
+import Error from '../pages/Error';
+import Rating from "../components/rating/Rating";
 
 
 export default function Accomodation() {
 	
-	const [imageSlider, setImageSlider] = useState([]);
 	const idAccomodation = useParams('id').id;
-	const dataCurrentAccomodation = datas.filter(data => data.id === idAccomodation);
+	const dataCurrentAccomodation = datas.filter(data => data.id === idAccomodation)[0];
 	
-	useEffect(() => {
-		const dataCurrentAccomodation = datas.filter(data => data.id === idAccomodation);
-		setImageSlider(dataCurrentAccomodation[0].pictures);
-	}, [idAccomodation]);
-
-	const name = dataCurrentAccomodation[0].host.name.split(' '); 
-	const rating = dataCurrentAccomodation[0].rating;
-	const description  = dataCurrentAccomodation[0].description;
-	const equipments = dataCurrentAccomodation[0].equipments;
-
 	return (
-		<>
+		<div>
+		{ !dataCurrentAccomodation ?( <Error /> ):(
+		<div>
 			<Header/>
-			<Slider imageSlider={imageSlider}/>
+			<Slider imageSlider={dataCurrentAccomodation.pictures}/>
 			<main className="accomodation">
 				<div className="accomodation_content">
 					<div className="accomodation_content_infos">
-						<h1>{dataCurrentAccomodation[0].title}</h1>
-						<p>{dataCurrentAccomodation[0].location}</p>
+						<h1>{dataCurrentAccomodation.title}</h1>
+						<p>{dataCurrentAccomodation.location}</p>
 						<div>
-							{dataCurrentAccomodation[0].tags.map((tag, index) => {
+							{dataCurrentAccomodation.tags.map((tag, index) => {
 								return (
 									<button className="tag" key={index}>{tag}</button>
 								)
@@ -46,32 +36,36 @@ export default function Accomodation() {
 					<div className="accomodation_content_host">
 						<div className="person">
 							<div className='accomodation_content_host_name'>
-								<span>{name[0]}</span>
-								<span>{name[1]}</span>
+								<span>{dataCurrentAccomodation.host.name.split(' ')[0]}</span>
+								<span>{dataCurrentAccomodation.host.name.split(' ')[1]}</span>
 							</div>
-							<img src={dataCurrentAccomodation[0].host.picture} alt="host of this accomodation" />
+							<img src={dataCurrentAccomodation.host.picture} alt="host of this accomodation" />
 						</div>
 							
 						<div className="accomodation_content_host_stars">
-							{[...Array(5)].map((star, index) => {
-								const ratingValue = index + 1;
-								return (
-									<img key={index} src={ratingValue <= rating ? redStar : greyStar} alt="star" />
-								)
-							})}
+							<Rating rating={dataCurrentAccomodation.rating}/>
 						</div>
 					</div>
 				</div>
 				<div className="container_collapse">
 					<div className="container_collapse_item">
-						<Collapse titleCollapse="Description" descriptionCollaspe={description} />	
+						<Collapse titleCollapse="Description" descriptionCollaspe={dataCurrentAccomodation.description} />	
 					</div>
 					<div className="container_collapse_item">
-						<Collapse titleCollapse="Équipements" descriptionCollaspe={equipments}/>
+						<Collapse 
+						titleCollapse="Équipements" 
+						descriptionCollaspe={dataCurrentAccomodation.equipments.map(
+							(equipment,index)=>(
+								<span key={index}>{equipment}</span>
+							)
+						)}/>
 					</div>	
 				</div>
 			</main>
 			<Footer/>
-		</>
+		</div>
+		)
+		}
+		</div>
 	)
 }

@@ -18,11 +18,16 @@
             color: white;
         }
         @media screen and (max-width: 650px){
-            img {
-               height: 110px;
-            }
             h1 {
-                font-size: medium;
+                font-size: 22px;
+                font-weight: 400;
+                width: 55%;
+                left: 10%;
+                text-align: left;
+                top: 15%;
+            }
+            img {
+                height: 120px;
             }
             }  
     }

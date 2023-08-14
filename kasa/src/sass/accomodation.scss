@@ -32,11 +32,19 @@
         border: none;
         margin-right: 2%;
         color: white;
+
     }
     @media screen and (max-width: 650px){
         .accomodation_content {
             display: flex;
             flex-direction: column;
+            font-size: x-small;
+            .tag {
+                font-size: x-small;
+            }
+            .accomodation_content_infos {
+                width: 100%;
+            }
             .accomodation_content_host {
                 display: flex;
                 flex-direction: row-reverse;
@@ -46,6 +54,7 @@
                     display: flex;
                     justify-content: flex-end;
                     width: 40%;
+                    margin-top: 4%;
                     img {
                         height: 45px;
                         width: 45px;
