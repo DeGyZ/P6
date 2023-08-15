@@ -15,4 +15,12 @@
     p {
         margin-bottom: 0;
     }
+    @media screen and (max-width: 650px){
+        img {
+            margin-top: 9%;
+        }
+        p {
+            margin-bottom: 9%;
+        }
+    }
 }

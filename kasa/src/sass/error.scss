@@ -4,6 +4,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-around;
+    height: 61vh;
     h1 {
         font-size: 200px;
         margin: 0;
@@ -13,5 +15,14 @@
     }
     a {
         color: #FF6060;
+    }
+    @media screen and (max-width: 650px){
+        height: 64vh;
+        h1 {
+            font-size: 150px;
+        }
+        p {
+            text-align: center;
+        }
     }
 }
