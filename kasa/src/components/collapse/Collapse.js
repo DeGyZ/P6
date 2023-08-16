@@ -24,7 +24,7 @@ export default function Collapse({titleCollapse, descriptionCollaspe}) {
             </div>
         </button>
         {open && (
-            <p className='descriptionCollapse'>{descriptionCollaspe}</p>
+            <p className='descriptionCollapse animation'>{descriptionCollaspe}</p>
         )}
     </div>
   )
