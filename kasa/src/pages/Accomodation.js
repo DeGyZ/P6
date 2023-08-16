@@ -1,4 +1,3 @@
-// import './accomodation.scss'
 import { useParams } from "react-router-dom";
 import datas from '../data/annonces.json'
 import Header from "../components/header/Header";
