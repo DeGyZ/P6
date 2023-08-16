@@ -10,7 +10,7 @@ export default function About() {
     return (
         <>
         <Header />
-        <Banner bannerTitle="" bannerImgSrc={bannerAbout}/>
+        <div className="photoAbout"><img src={bannerAbout} alt="" /></div>
         <div >
         {collapsesItems.map((collapsesItem)=>(
         <Collapse titleCollapse={collapsesItem.title} descriptionCollaspe={collapsesItem.content} key={collapsesItem.id}/>
